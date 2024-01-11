@@ -1,0 +1,18 @@
+site_name: My Docs
+theme:
+  name: material
+  language: en
+  palette:
+    scheme: default
+    primary: purple
+    accent: indigo
+extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: Chinese
+      link: /zh/
+      lang: zh
+plugins:
+  - search
