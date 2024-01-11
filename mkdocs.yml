@@ -28,4 +28,3 @@ theme:
 plugins:
   - search
   - tags
-  - blog
