@@ -1,11 +1,27 @@
-site_name: My Docs
+site_name: Rock AI
+repo_url: https://github.com/incomingflyingbrick/rock
 theme:
+  icon:
+    repo: fontawesome/brands/git-alt
   name: material
   language: en
   palette:
     scheme: default
     primary: purple
     accent: indigo
+  features:
+    - header.autohide
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.highlight
+    - search.suggest
+    - search.share
+
 extra:
   alternate:
     - name: English
@@ -16,3 +32,4 @@ extra:
       lang: zh
 plugins:
   - search
+  - tags
