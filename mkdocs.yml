@@ -6,8 +6,8 @@ nav:
   - Getting Started: 'get_start.md'
 
 theme:
-  logo: assets/landslide.png
-  favicon: assets/landslide.png
+  logo: stone.png
+  favicon: stone.png
   name: material
   icon:
     repo: fontawesome/brands/git-alt
