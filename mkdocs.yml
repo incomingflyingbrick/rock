@@ -10,7 +10,8 @@ nav:
 
 theme:
   palette:
-
+    - primary: purple
+    - accent: deep purple
     # Palette toggle for light mode
     - scheme: default
       toggle:
