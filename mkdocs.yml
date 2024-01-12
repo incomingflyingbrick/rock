@@ -2,8 +2,11 @@ site_name: Rock AI
 repo_url: https://github.com/incomingflyingbrick/rock
 nav:
   - Home: 'index.md'
-  - Public Model: 'public_model.md'
   - Getting Started: 'get_start.md'
+  - Collections: 'col.md'
+  - Public Model: 'public_model.md'
+
+
 
 theme:
   logo: stone.png
