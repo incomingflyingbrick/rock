@@ -1,0 +1,27 @@
+site_name: Rock AI
+repo_url: https://github.com/incomingflyingbrick/rock
+nav:
+  - Home: 'index.md'
+  - Public Model: 'public_model.md'
+  - Getting Started: 'get_start.md'
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/git-alt
+  language: en
+  features:
+    - header.autohide
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.expand
+    - search.highlight
+    - search.suggest
+    - search.share
+
+plugins:
+  - search
+  - tags
