@@ -18,7 +18,7 @@ All API requests must be authenticated with a token. Include this header with al
 import requests
 import json
 
-url = "https://inf-test-dev-mhvxow5uwq-de.a.run.app/v1/predictions"
+url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/predictions"
 
 payload = json.dumps({
     "version": "5821a338d00033abaaba89080a17eb8783d9a17ed710a6b4246a18e0900ccad4",
@@ -48,7 +48,7 @@ print(response.text)
 ```python
 import requests
 
-url = "https://inf-test-dev-mhvxow5uwq-de.a.run.app/v1/predictions/ujebapbbulzpx25442efjv4qba"
+url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/predictions/ujebapbbulzpx25442efjv4qba"
 
 payload = {}
 headers = {
@@ -67,7 +67,7 @@ print(response.text)
 ```python
 import requests
 
-url = "https://inf-test-dev-mhvxow5uwq-de.a.run.app/v1/predictions/eoyokbzbm3yfdhpspr5xak24ye/cancel"
+url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/predictions/eoyokbzbm3yfdhpspr5xak24ye/cancel"
 
 payload = {}
 headers = {}
@@ -85,7 +85,7 @@ print(response.text)
 import requests
 import json
 
-url = "https://inf-test-dev-mhvxow5uwq-de.a.run.app/v1/run"
+url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/run"
 
 payload = json.dumps({
     "model": "mistralai/mistral-7b-instruct-v0.1:5fe0a3d7ac2852264a25279d1dfb798acbc4d49711d126646594e212cb821749",
@@ -118,7 +118,7 @@ print(response.text)
 import requests
 import json
 
-url = "https://inf-test-dev-mhvxow5uwq-de.a.run.app/v1/run_sse"
+url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/run_sse"
 
 payload = json.dumps({
     "model": "meta/llama-2-7b-chat:f1d50bb24186c52daae319ca8366e53debdaa9e0ae7ff976e918df752732ccc4",
