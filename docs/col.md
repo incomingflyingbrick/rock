@@ -1,6 +1,7 @@
 # Collections
 
-Checkout our collections, to find out models you need to boost your productivity
+## Checkout our collections, to find out models you need to boost your productivity
+### We take pride in offering an expansive array of model selections, ensuring that our customers have access to an extensive variety of options.
 
 🔧 Utilities: Toolbelt-type models for captioning videos, combining images into videos, extracting frames from videos, extracting audio from video, etc.
 
