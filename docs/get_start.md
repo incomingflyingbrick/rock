@@ -5,13 +5,15 @@ You can do inference with our HTTP API
 ### Authentication
 
 All API requests must be authenticated with a token. Include this header with all requests:
-
-```python
-Authorization: Bearer <paste-your-api-key-here>
-```
+=== "Example"
+    ```python
+    Authorization: Bearer <paste-your-api-key-here>
+    ```
 
 ### Create a prediction
 
+
+=== "Python"
 ```python
 import requests
 import json
@@ -41,6 +43,8 @@ print(response.text)
 
 ### Get a prediction
 
+
+=== "Python"
 ```python
 import requests
 
@@ -59,6 +63,7 @@ print(response.text)
 
 ### Cancel a prediction
 
+=== "Python"
 ```python
 import requests
 
@@ -75,6 +80,7 @@ print(response.text)
 
 ### Run a model
 
+=== "Python"
 ```python
 import requests
 import json
@@ -107,6 +113,7 @@ print(response.text)
 
 ### Run a model with server side event
 
+=== "Python"
 ```python
 import requests
 import json
