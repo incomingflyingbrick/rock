@@ -27,6 +27,8 @@ if __name__ == '__main__':
     for item in dict['data']['models']:
         append_line_to_file('test.md', '### ' + item['owner'] + '/' + '*' + item['name'] + '*')
         append_line_to_file('test.md', '#### ' + item['description'])
-        append_line_to_file('test.md', "#### ![Alt text]({})".format(item['cover_image_url']))
+        # append_line_to_file('test.md', "#### ![Alt text]({})".format(item['cover_image_url']))
+        append_line_to_file('test.md', "\n<img src=\"{}\" alt=\"image\" width=\"300\" height=\"auto\">\n".format(
+            item['cover_image_url']))
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
