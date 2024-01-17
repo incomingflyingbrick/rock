@@ -12,6 +12,7 @@ All API requests must be authenticated with a token. Include this header with al
 
 ### Create a prediction
 
+You can create a prediction using the following API, it will return weather the prediction is successfully created or not.
 
 === "Python"
 ```python
@@ -37,17 +38,19 @@ headers = {
 
 response = requests.request("POST", url, headers=headers, data=payload)
 
+# You will get a prediction id from the result, the id is for fetching prediction results.
 print(response.text)
 
 ```
 
 ### Get a prediction
-
+You can fetch prediction results from the server by using a prediction *id*
 
 === "Python"
 ```python
 import requests
 
+#attach a prediction id to end of the request url
 url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/predictions/ujebapbbulzpx25442efjv4qba"
 
 payload = {}
@@ -62,6 +65,8 @@ print(response.text)
 ```
 
 ### Cancel a prediction
+
+You can also cancel a prediction using prediction id
 
 === "Python"
 ```python
@@ -79,6 +84,8 @@ print(response.text)
 ```
 
 ### Run a model
+
+You can do inference on a model using this API, will be directly return the results
 
 === "Python"
 ```python
@@ -112,6 +119,8 @@ print(response.text)
 ```
 
 ### Run a model with server side event
+
+If you can using a language model like *llama-2-7b-chat*, you can use this API to get the result using server side event 
 
 === "Python"
 ```python
