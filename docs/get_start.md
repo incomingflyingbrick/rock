@@ -1,18 +1,19 @@
-# Getting Start
-You can do inference with our HTTP API
+# 开始
+调用机器学习模型只需要一个简单的API
 ## HTTP API
 
-### Authentication
+### 鉴权
 
-All API requests must be authenticated with a token. Include this header with all requests:
+所有 API 请求都必须使用令牌进行身份验证。请在所有请求中包含以下标头：
+
 === "Example"
     ```python
     Authorization: Bearer <paste-your-api-key-here>
     ```
 
-### Create a prediction
+### 开始推理
 
-You can create a prediction using the following API, it will return weather the prediction is successfully created or not.
+您可以使用以下 API 创建预测，它将返回预测是否创建成功。
 
 === "Python"
 ```python
@@ -38,19 +39,18 @@ headers = {
 
 response = requests.request("POST", url, headers=headers, data=payload)
 
-# You will get a prediction id from the result, the id is for fetching prediction results.
 print(response.text)
 
 ```
 
-### Get a prediction
-You can fetch prediction results from the server by using a prediction *id*
+### 获取推理结果
+可以使用预测 id 从服务器获取预测结果。
 
 === "Python"
 ```python
 import requests
 
-#attach a prediction id to end of the request url
+#将id添加到url后面
 url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/predictions/ujebapbbulzpx25442efjv4qba"
 
 payload = {}
@@ -64,9 +64,9 @@ print(response.text)
 
 ```
 
-### Cancel a prediction
+### 取消进行中的推理
 
-You can also cancel a prediction using prediction id
+您也可以使用预测 id 取消预测。
 
 === "Python"
 ```python
