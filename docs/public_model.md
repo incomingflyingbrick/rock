@@ -1,9 +1,8 @@
-# Public Model
+# 公开模型
 
-We offer tons of model to choose from!
-Below are an example of model, be sure to check our website for more!
+我们提供大量模型供您选择！以下是模型示例，请务必访问我们的网站了解更多信息！
 
-## Models
+## 模型
 
 ### cjwbw/*unidiffuser*
 #### One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale
