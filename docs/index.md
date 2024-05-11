@@ -1,49 +1,49 @@
-# Welcome to Rock AI
+# 欢迎来到 Rock AI
 
-Rock AI is a 🚀 platform designed specifically for programmers, offering the ability to effortlessly interact with machine learning models for inference. It's a game-changer in empowering developers to unlock the full potential of their projects! 🤖💻
+Rock AI 是一个为程序员量身打造的 🚀 平台，提供与机器学习模型轻松交互进行推理的能力。这将改变游戏规则，帮助开发人员充分发挥他们项目的潜力！🤖💻
 
-## Collections
+## 模型集合
 
-Checkout our collections, to find out models you need to boost your productivity
+浏览我们的集合，找到您需要的模型来提高生产力：
 
-🔧 Utilities: Toolbelt-type models for captioning videos, combining images into videos, extracting frames from videos, extracting audio from video, etc.
+🔧 **实用工具**：工具带型模型，用于为视频添加字幕、将图像合成为视频、从视频中提取帧、从视频中提取音频等。
 
-🌐 3D models: Models that generate 3D objects, scenes, radiance fields, textures, and multi-views.
+🌐 **3D 模型**：生成 3D 对象、场景、光场、纹理和多视图的模型。
 
-👁️ Vision models: Multimodal large language models with vision capabilities like object detection and optical character recognition (OCR).
+👁️ **视觉模型**：具备视觉功能的多模态大型语言模型，例如目标检测和光学字符识别 (OCR)。
 
-🖼️ T2I-Adapter: T2I-Adapter models to modify images.
+🖼️ **T2I-Adapter**：用于修改图像的 T2I-Adapter 模型。
 
-📚 Language models with support for grammars and jsonschema: Language models that support grammar-based decoding as well as JSON schema constraints.
+📚 **支持语法和 JSON Schema 的语言模型**：支持基于语法的解码和 JSON Schema 约束的语言模型。
 
-🎨 SDXL fine-tunes: Some of our favorite SDXL fine-tunes.
+🎨 **SDXL 微调**：我们最喜欢的一些 SDXL 微调模型。
 
-🌊 Streaming language models: Language models that support streaming responses. See here.
+🌊 **流式语言模型**：支持流式响应的语言模型。查看此处。
 
-🖌️ Image editing: Tools for manipulating images.
+🖌️ **图像编辑**：用于操作图像的工具。
 
-🔍 Embedding models: Models that generate embeddings from inputs.
+🔍 **嵌入模型**：从输入中生成嵌入的模型。
 
-🎓 Trainable language models: Language models that you can fine-tune using Replicate's training API.
+🎓 **可训练的语言模型**：可以使用 Replicate 的训练 API 进行微调的语言模型。
 
-📝 Language models: Models that can understand and generate text.
+📝 **语言模型**：可以理解和生成文本的模型。
 
-⚙️ ControlNet: Control diffusion models.
+⚙️ **ControlNet**：控制扩散模型。
 
-🎵 Audio generation: Models to generate and modify audio.
+🎵 **音频生成**：用于生成和修改音频的模型。
 
-🌅 Diffusion models: Image and video generation models trained with diffusion processes.
+🌅 **扩散模型**：使用扩散过程训练的图像和视频生成模型。
 
-📹 Videos: Models that create and edit videos.
+📹 **视频**：创建和编辑视频的模型。
 
-📷 Image to text: Models that generate text prompts and captions from images.
+📷 **图像转文本**：从图像生成文本提示和字幕的模型。
 
-🔍 Image upscaling: Upscaling models that create high-quality images from low-quality images.
+🔍 **图像放大**：使用放大模型将低质量图像转换为高质量图像。
 
-🎨 Style transfer: Models that take a content image and a style reference to produce a new image.
+🎨 **风格迁移**：使用内容图像和风格参考来生成新图像的模型。
 
-💄 ML makeovers: Models that let you change facial features.
+💄 **机器学习改造**：允许您改变面部特征的模型。
 
-🖼️ Image restoration: Models that improve or restore images by deblurring, colorization, and removing noise.
+🖼️ **图像修复**：通过去模糊、上色和去噪来改善或修复图像的模型。
 
-📝 Text to image: Models that generate images from text prompts.
+📝 **文本转图像**：根据文本提示生成图像的模型。

@@ -7,15 +7,17 @@
 所有 API 请求都必须使用令牌进行身份验证。请在所有请求中包含以下标头：
 
 === "Example"
-    ```python
-    Authorization: Bearer <paste-your-api-key-here>
-    ```
 
-### 开始推理
+```python
+Authorization: Bearer <将API_KEY放在这里>
+```
+
+### 开始预测
 
 您可以使用以下 API 创建预测，它将返回预测是否创建成功。
 
 === "Python"
+
 ```python
 import requests
 import json
@@ -38,12 +40,12 @@ headers = {
 }
 
 response = requests.request("POST", url, headers=headers, data=payload)
-
+#从结果里面获取预测id
 print(response.text)
 
 ```
 
-### 获取推理结果
+### 获取预测结果
 可以使用预测 id 从服务器获取预测结果。
 
 === "Python"
@@ -55,7 +57,7 @@ url = "https://fqpedg8vi2.ap-northeast-1.awsapprunner.com/v1/predictions/ujebapb
 
 payload = {}
 headers = {
-    'Authorization': 'Bearer <paste-your-token-here>'
+    'Authorization': 'Bearer <将API_KEY放在这里>'
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
@@ -64,7 +66,7 @@ print(response.text)
 
 ```
 
-### 取消进行中的推理
+### 取消进行中的预测
 
 您也可以使用预测 id 取消预测。
 
@@ -83,9 +85,9 @@ print(response.text)
 
 ```
 
-### Run a model
+### 调用模型并直接返回结果
 
-You can do inference on a model using this API, will be directly return the results
+您可以使用此 API 对模型进行推理，模型将将直接返回结果。
 
 === "Python"
 ```python
@@ -118,9 +120,9 @@ print(response.text)
 
 ```
 
-### Run a model with server side event
+### 运行模型(流式 server side event)
 
-If you can using a language model like *llama-2-7b-chat*, you can use this API to get the result using server side event 
+如果您可以使用像 llama-2-7b-chat 这样的语言模型，您可以使用此 API 通过服务器端事件获取结果。
 
 === "Python"
 ```python
