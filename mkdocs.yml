@@ -2,8 +2,8 @@ site_name: Rock AI
 repo_url: https://github.com/incomingflyingbrick/rock
 nav:
   - 介绍: 'index.md'
-  - HTTP API: 'get_start.md'
   - Python SDK: 'col.md'
+  - HTTP API: 'get_start.md'
 
 
 
