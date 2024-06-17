@@ -1,6 +1,6 @@
 # Python SDK
 
-使用RockAI SDK来调用大模型更为简单
+使用RockAI SDK来调用大模型更为简单.
 
 ## 安装
 
@@ -11,7 +11,7 @@ pip install rockai-cli-app
 
 ## 获取API TOKEN
 
-登录到RockAI, 然后点击 https://www.rockai.online/setting/token 获取API_TOKEN
+登录RockAI后点击 [获取API_TOKEN](https://www.rockai.online/setting/token) 
 
 ## 鉴权
 
@@ -21,10 +21,10 @@ from rockai_cli_app import Client
 client = Client(api_token="<API_TOKEN_HERE>")
 ```
 
-## 运行模型 (synchronous)
+## 运行模型 (synchronous同步调用)
 
 这里我们拿 **meta/musicgen** 举例，生成一段音乐, 更多模型参数请前往
-https://www.rockai.online/models/meta/musicgen 查看
+[meta/musicgen](https://www.rockai.online/models/meta/musicgen) 查看
 
 ```python
 from rockai_cli_app import Client
@@ -37,7 +37,7 @@ def main():
         "output_format": "mp3",
         "normalization_strategy": "peak",
     }
-    client = Client(api_token="aacd3056e2964ffeb720418b80c76971")
+    client = Client(api_token="<填入你的 API TOKEN>")
     result = client.run(
         version="671ac645ce5e552cc63a54a2bbff63fcf798043055d2dac5fc9e36a837eedcfb",
         input=input,
@@ -51,9 +51,9 @@ if __name__ == "__main__":
 ```
 
 
-## 运行模型 (asynchronous)
+## 运行模型 (asynchronous异步调用)
 
-这里我们同样拿 **meta/musicgen** 举例，生成一段音乐, 使用 **run_async** 方法生成音乐. 此方法适用于FastAPI等Async框架.
+这里我们同样拿 **meta/musicgen** 举例，生成一段音乐, 使用 **run_async** 方法生成音乐. 此方法适用于FastAPI等异步框架.
 
 ```python
 
@@ -67,7 +67,7 @@ async def main():
         "output_format": "mp3",
         "normalization_strategy": "peak",
     }
-    client = Client(api_token="aacd3056e2964ffeb720418b80c76971")
+    client = Client(api_token="<填入你的 API TOKEN>")
     result = await client.run_async(
         version="671ac645ce5e552cc63a54a2bbff63fcf798043055d2dac5fc9e36a837eedcfb",
         input=input,
@@ -82,8 +82,8 @@ if __name__ == "__main__":
 ```
 
 
-## 调用大语言模型 (synchronous)
-大语言模型通常以流式的方式返回结果, 这里我们拿meta/meta-llama-3-70b-instruct举例，让接口以流式的方式返回结果. 更多模型参数请前往 https://www.rockai.online/models/meta/meta-llama-3-70b-instruct 查看
+## 调用大语言模型 (synchronous同步调用)
+大语言模型通常以流式的方式返回结果, 这里我们拿 **meta/meta-llama-3-70b-instruct** 举例，让接口以流式的方式返回结果. 更多模型参数请前往 [meta/meta-llama-3-70b-instruct](https://www.rockai.online/models/meta/meta-llama-3-70b-instruct) 查看
 
 ```python
 from rockai_cli_app import Client
@@ -98,7 +98,7 @@ def main():
         "min_tokens": 0,
         "temperature": 0.6,
     }
-    client = Client(api_token="aacd3056e2964ffeb720418b80c76971")
+    client = Client(api_token="<填入你的 API TOKEN>")
     result = client.stream(input=input, version="fbfb20b472b2f3bdd101412a9f70a0ed4fc0ced78a77ff00970ee7a2383c575d")
     for word in result:
         print(word)
@@ -111,8 +111,8 @@ if __name__ == "__main__":
 ```
 
 
-## 调用大语言模型 (asynchronous)
-大语言模型通常以流式的方式返回结果, 这里我们拿meta/meta-llama-3-70b-instruct举例，让接口以流式的方式返回结果, 这里的流流式调用方法提供async版本，可以支持在FastAPI等异步框架里面使用. 更多模型参数请前往 https://www.rockai.online/models/meta/meta-llama-3-70b-instruct 查看
+## 调用大语言模型 (asynchronous异步调用)
+大语言模型通常以流式的方式返回结果, 这里我们拿 **meta/meta-llama-3-70b-instruct** 举例，让接口以流式的方式返回结果, 开发者可以使用 **stream_async** 方法，在FastAPI等异步框架里面调用模型. 更多模型参数请前往 [meta/meta-llama-3-70b-instruct](https://www.rockai.online/models/meta/meta-llama-3-70b-instruct) 查看
 ```python
 from rockai_cli_app import Client
 import asyncio
@@ -126,7 +126,7 @@ async def main():
         "min_tokens": 0,
         "temperature": 0.6,
     }
-    client = Client(api_token="aacd3056e2964ffeb720418b80c76971")
+    client = Client(api_token="<填入你的 API TOKEN>")
     result = client.stream_async(input=input, version="fbfb20b472b2f3bdd101412a9f70a0ed4fc0ced78a77ff00970ee7a2383c575d")
     async for word in result:
         print(word)
@@ -137,6 +137,11 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
+
+## 取消运行中的模型
+```python
+
+```
 
 
 
