@@ -3,8 +3,7 @@ repo_url: https://github.com/incomingflyingbrick/rock
 nav:
   - 介绍: 'index.md'
   - 从这里开始: 'get_start.md'
-  - 模型集合: 'col.md'
-  - 公开模型: 'public_model.md'
+  - PythonSDK: 'col.md'
 
 
 
