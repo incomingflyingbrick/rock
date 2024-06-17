@@ -23,7 +23,7 @@ import requests
 import json
 
 url = "https://api.rockai.online/v1/predictions"
-
+# 填入version和input, 具体参数请参考模型详情页
 payload = json.dumps({
     "version": "5821a338d00033abaaba89080a17eb8783d9a17ed710a6b4246a18e0900ccad4",
     "input": {
@@ -53,7 +53,7 @@ print(response.text)
 import requests
 
 #将id添加到url后面
-url = "https://api.rockai.online/v1/predictions/ujebapbbulzpx25442efjv4qba"
+url = "https://api.rockai.online/v1/predictions/{id}"
 
 payload = {}
 headers = {
@@ -74,7 +74,7 @@ print(response.text)
 ```python
 import requests
 
-url = "https://api.rockai.online/v1/predictions/eoyokbzbm3yfdhpspr5xak24ye/cancel"
+url = "https://api.rockai.online/v1/predictions/{id}/cancel"
 
 payload = {}
 headers = {}
@@ -84,40 +84,3 @@ response = requests.request("POST", url, headers=headers, data=payload)
 print(response.text)
 
 ```
-
-## 调用模型并直接返回结果
-
-您可以使用此 API 对模型进行推理，模型将将直接返回结果。
-
-=== "Python"
-```python
-import requests
-import json
-
-url = "https://api.rockai.online/v1/run"
-
-payload = json.dumps({
-    "model": "mistralai/mistral-7b-instruct-v0.1:5fe0a3d7ac2852264a25279d1dfb798acbc4d49711d126646594e212cb821749",
-    "input": {
-        "top_k": 50,
-        "top_p": 0.9,
-        "prompt": "Can you write me a poem about steamed hams?",
-        "temperature": 0.7,
-        "max_new_tokens": 500,
-        "min_new_tokens": -1,
-        "prompt_template": "{prompt}",
-        "repetition_penalty": 1.15
-    }
-})
-headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer <paste-your-token-here>'
-}
-
-response = requests.request("POST", url, headers=headers, data=payload)
-
-print(response.text)
-
-```
-
-
