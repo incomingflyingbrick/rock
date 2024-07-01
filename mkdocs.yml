@@ -3,6 +3,7 @@ repo_url: https://github.com/incomingflyingbrick/rock
 nav:
   - 介绍: 'index.md'
   - Python SDK: 'col.md'
+  - JavaScript SDK: 'js_doc.md'
   - HTTP API: 'get_start.md'
 
 
