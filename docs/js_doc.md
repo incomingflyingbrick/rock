@@ -78,17 +78,17 @@ const rockAI = new RockAI({ fetch });
 const output = await rockAI.run(options);
 ```
 
-| name              | type   | description                    |
-| ----------------- | ------ | ------------------------------ |
-| `options.version` | string | 模型版本号, 默认为 latest 版本 |
-| `options.input`   | object | `必填` 模型输入                |
+| name              | type   | description       |
+| ----------------- | ------ | ----------------- |
+| `options.version` | string | `必填` 模型版本号 |
+| `options.input`   | object | `必填` 模型输入   |
 
 ### rockAI.stream
 
-| name              | type   | description                           |
-| ----------------- | ------ | ------------------------------------- |
-| `options.version` | string | `必填` 模型版本号, 默认为 latest 版本 |
-| `options.input`   | object | `必填` 模型输入                       |
+| name              | type   | description       |
+| ----------------- | ------ | ----------------- |
+| `options.version` | string | `必填` 模型版本号 |
+| `options.input`   | object | `必填` 模型输入   |
 
 ### rockAI.predictions.create
 
@@ -98,7 +98,7 @@ const response = await rockAI.predictions.create(options);
 
 | name                            | type     | description                                                      |
 | ------------------------------- | -------- | ---------------------------------------------------------------- |
-| `options.version`               | string   | `必填` 模型版本号, 默认为 latest 版本                            |
+| `options.version`               | string   | `必填` 模型版本号                                                |
 | `options.input`                 | object   | `必填` 模型输入                                                  |
 | `options.webhook`               | string   | 用于 predictions 有新输出时接收webhooks的 URL                    |
 | `options.webhook_events_filter` | string[] | 触发 webhook 事件数组 允许: `start` `output` ` logs` `completed` |
