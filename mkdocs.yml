@@ -2,9 +2,9 @@ site_name: Rock AI
 repo_url: https://github.com/incomingflyingbrick/rock
 nav:
   - 介绍: 'index.md'
-  - Python SDK: 'col.md'
+  - Python SDK: 'python_docs.md'
   - JavaScript SDK: 'js_doc.md'
-  - HTTP API: 'get_start.md'
+  - HTTP API: 'http_api.md'
 
 
 
@@ -33,7 +33,6 @@ theme:
     - navigation.instant
     - navigation.instant.progress
     - navigation.tracking
-    - navigation.tabs
     - navigation.expand
     - search.highlight
     - search.suggest
