@@ -7,9 +7,8 @@
 所有 API 请求都必须使用令牌进行身份验证。请在所有请求的header中加入以下字段.
 
 === "Header样例"
-将 *8e4ebd9b765c4e1990f1577d29c1f1ff* 替换为你自己的 API_TOKEN
 ```
-Authorization: Bearer 8e4ebd9b765c4e1990f1577d29c1f1ff
+Authorization: Bearer {API_TOKEN}
 ```
 
 ## 创建预测
