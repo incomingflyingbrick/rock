@@ -66,6 +66,12 @@ POST https://api.rockai.online/v1/predictions
 ```
 GET https://api.rockai.online/v1/predictions/{id}
 ```
+
+### 参数
+
+* id `必传` `string` 预测id ，根据id查询结果。
+
+
 ### 接口详情
 根据 *id* 来获取模型输出的结果, *id* 可从 `创建预测` 接口的返回结果中获取.
 
@@ -107,12 +113,68 @@ GET https://api.rockai.online/v1/predictions/{id}
 | failed（失败）       | 预测在处理过程中遇到错误                                                                   |
 | canceled（已取消）   | 预测已被创建者取消                                                                         |
 
-* `output` 模型输出的内容
+* `output` 模型输出的内容 (如果模型输出的是一个url文件下载地址, 例如 **https://webui-objects.s3.amazonaws.com/8606fec283b84951af0b1e4969a3121ctest.png** ,此文件会被保存在RockAI的存储服务器中,有效期一小时，过期自动删除)
 
-### 参数
 
-* id `必传` `string` 预测id ，根据id查询结果。
   
+
+## 文件上传
+
+### 接口
+```
+GET https://api.rockai.online/v1/get_presign_url?file_name={example_image.jpg}
+```
+
+### 请求参数
+* file_name `必传` `string` 文件名 示例：example_image.jpg
+
+### 接口详情
+如果某个模型的输入参数为url, 例如 image-to-image 模型通常需要开发者提供一张图片来做推理。如果你只有一张图片并且没有这张图片的下载地址，你可以将这个图片上传到RockAI的存储服务器中，存储服务器会自动为上传的文件生成一个下载链接, 我们可以将这个下载链接喂给模型.
+
+此接口调用成功会返回两个字段，`put_url`和`get_url`, 当我们拿到`put_url`之后就可以开始上传文件了, 开发者需要用`PUT`请求来请求`put_url`,并在`data`中加入需要上传的文件, 上传示例请参考下面代码. get_url是该文件的下载地址，开发者需要将get_url的地址喂给模型，这样模型就可以下载文件并开始推理.
+
+=== "返回结果"
+```json
+// 请求 /v1/get_presign_url 并拿到put_url和get_url
+{
+    "data": {
+        "put_url": "https://webui-objects.s3.amazonaws.com/8606fec283b84951af0b1e4969a3121ctest.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQQA3W6XQDU4SAUOM%2F20240826%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240826T071600Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=afb8b173319e101b5c1b161f76ad132a1c4511f0977ea9afecf34b4e22709fc6",
+        "get_url": "https://webui-objects.s3.amazonaws.com/8606fec283b84951af0b1e4969a3121ctest.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQQA3W6XQDU4SAUOM%2F20240826%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240826T071600Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=53ffb6d01d00e49b15a8b8efbf097ce3d86a050f94ee80bcb5af9820c3b6dd78"
+    },
+    "msg": "success",
+    "code": 200
+}
+```
+
+=== "文件上传示例Python"
+```python
+# 开始上传文件
+import requests
+
+# 上一步获取的put_url
+url = 'https://webui-objects.s3.amazonaws.com/8606fec283b84951af0b1e4969a3121ctest.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQQA3W6XQDU4SAUOM%2F20240826%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240826T071600Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=afb8b173319e101b5c1b161f76ad132a1c4511f0977ea9afecf34b4e22709fc6'
+
+# 打开需要上传的文件
+with open('example_image.jpg', 'rb') as file:
+    # 发送PUT请求开始上传文件 
+    response = requests.put(url, data=fil.read())
+
+# 查看上传结果
+if response.status_code == 200:
+    print('Image uploaded successfully')
+else:
+    print(f'Failed to upload image. Status code: {response.status_code}')
+    print(f'Response: {response.text}')
+
+
+```
+
+* put_url: 文件上传的地址, 开发者需用PUT请求请求此接口,将需要上传的文件放入data中
+* get_url: 文件的下载地址，当开发者已经上传文件完成，可以调用此接口来下载自己的文件
+* **文件在存储服务器中只会保存一小时,过期后将自动删除**
+
+
+
 
 
 
