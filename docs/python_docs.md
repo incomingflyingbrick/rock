@@ -24,7 +24,7 @@ client = Client(api_token="<API_TOKEN_HERE>")
 ## 运行模型 (synchronous同步调用)
 
 这里我们拿 **incomingflyingbrick/flux-1-schnell** 举例，生成一段音乐, 更多模型参数请前往
-[meta/musicgen](https://rockai.online/models/incomingflyingbrick/flux-1-schnell) 查看
+[incomingflyingbrick/flux-1-schnell](https://rockai.online/models/incomingflyingbrick/flux-1-schnell) 查看
 
 ```python
 from rockai import Client

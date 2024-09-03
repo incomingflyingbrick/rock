@@ -5,6 +5,7 @@ nav:
   - Python SDK: 'python_docs.md'
   - JavaScript SDK: 'js_doc.md'
   - HTTP API: 'http_api.md'
+  - 使用云端GPU运行自己的模型: 'upload.md'
 
 
 
