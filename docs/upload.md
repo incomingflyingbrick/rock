@@ -201,7 +201,7 @@ $ rockai build --name r.18h.online/<your-user-name>/<model-name> --file predicto
 
 ```bash
 $ rockai login
-#复制api-token并回车
+#根据提示复制api-token并回车
 ```
 
 上传模型
