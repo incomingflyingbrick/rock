@@ -6,7 +6,7 @@ RockAI平台支持开发者自己上传模型并推理，不需要购买GPU. 开
 0. 新建一个文件夹并创建一个虚拟环境，如果您已经搭建好virtual enviroment可以跳过此步骤.
 
 ```base
-$ mkdir my_project && mkdir my_project
+$ mkdir my_project && cd my_project
 $ python -m venv env
 $ source env/bin/activate
 ```
