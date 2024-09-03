@@ -3,7 +3,8 @@
 RockAI平台支持开发者自己上传模型并推理，不需要购买GPU. 开发者可以使用我们提供的命令行工具制作一个Docker镜像. 当将镜像被上传到RockAI平台之后, 开发者就可以使用HTTP API,RockAI Python SDK, RockAI NodeJS SDK的方式调用模型.
 
 ## 上传教程示例
-0. 新建一个文件夹并创建一个虚拟环境，如果您已经搭建好virtual enviroment可以跳过此步骤.
+
+新建一个文件夹并创建一个虚拟环境，如果您已经搭建好virtual enviroment可以跳过此步骤.
 
 ```base
 $ mkdir my_project && cd my_project
@@ -11,17 +12,11 @@ $ python -m venv env
 $ source env/bin/activate
 ```
 
-1. 安装依赖库`rockai`, 推荐在virtual environment环境下安装.
+安装依赖库`rockai`, 推荐在virtual environment环境下安装.
 
 ```bash
 # RockAI 支持的python版本为 3.9-3.12 版本
 $ pip install -U rockai
-```
-
-2. 新建一个文件夹，或者在现有工程下运行以下代码
-
-```bash
-$ mkdir my_ai_project && cd my_ai_project
 $ rockai init
 ```
 
