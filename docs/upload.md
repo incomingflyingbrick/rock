@@ -218,6 +218,11 @@ $ rockai login
 #根据提示复制api-token并回车
 ```
 
+也可以使用以下方式登录
+```bash
+$ rockai login --api-token <API_TOKEN>
+```
+
 上传模型
 ```bash
 $ rockai push r.18h.online/<your-user-name>/<model-name>
