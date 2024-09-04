@@ -6,8 +6,9 @@ RockAI平台支持开发者自己上传模型并推理，不需要购买GPU. 开
 
 新建一个文件夹并创建一个虚拟环境，如果您已经搭建好virtual enviroment可以跳过此步骤.
 
-```base
-$ mkdir my_project && cd my_project
+```bash
+$ mkdir my_project
+$ cd my_project
 $ python -m venv env
 $ source env/bin/activate
 ```
@@ -26,14 +27,11 @@ $ rockai init
 from rockai import BasePredictor, Input, thread_limit,List,Dict
 import logging
 from transformers import pipeline
-# 如果需要使用环境变量，可以使用dotenv库，把环境变量写入.my_env文件中
-# from dotenv import load_dotenv
-# load_dotenv(".my_env")
 
 class Predictor(BasePredictor):
 
     # The dependencies you usually write in requirements.txt
-    requirement_dependency = ["numpy","torch","transformers","accelerate"]
+    requirement_dependency = ["torch","transformers","accelerate"]
 
     # The dependencies you usually do `apt install` with
     system_dependency = ["wget"]
@@ -42,23 +40,22 @@ class Predictor(BasePredictor):
         # setup your model here, load models weights, also do other initialization setup
         self.logger = logging.getLogger()
         self.logger.setLevel("DEBUG")
-        self.logger.debug("Setup model your model here")
         self.generator = pipeline("text-generation", model="gpt2")
-        self.logger.debug("Model setup completed")
-        
-        
+        self.logger.debug("Model setup complete")
 
     # limit the number of threads runnig, the more threads the more GRAM it will be used when doing predictions
     @thread_limit(1)
     def predict(self, prompt: str = Input(description="text to generate")) -> List[Dict[str,str]]:
         # start prediction
-        self.logger.debug("predicting...")
+        self.logger.debug("Predicting...")
         result = self.generator(
             f"Hello, I'm a language model,{prompt}",
-            max_length=80,
+            max_length=100,
             num_return_sequences=1,
         )
+        # return your result here
         return result
+
 ```
 ### `predictor.py`介绍
 `Predictor`类继承于`BasePredictor`,并`override`了`setup()`和`predict()`方法.
@@ -105,7 +102,7 @@ class Predictor(BaseModel):
         ...
     def predict(self,prompt:str)->MyOutput:
         ...
-        return MyOutput('xxx',Path("output.png"))
+        return MyOutput(image_name='xxx',image_file=Path("output.png"))
 ```
   
 
@@ -172,7 +169,7 @@ RockAI 支持将模型打包并上传至云端以Serverless形式在GPU上运行
 ```bash
 # 将模型打包成Docker镜像, 没有安装Docker的话需要先安装Docker并启动Docker. 登录后获取user-name, 并给你的模型起一个名字填入model-name中,例如: r.18h.online/xiaoming/hotdog-detector
 
-$ rockai build --name r.18h.online/<your-user-name>/<model-name> --file predictor.py
+$ rockai build r.18h.online/<your-user-name>/<model-name> --file predictor.py
 ```
 
 `rockai build` 命令支持多种参数
@@ -191,6 +188,7 @@ $ rockai build --name r.18h.online/<your-user-name>/<model-name> --file predicto
   
 * `--help`：显示帮助信息
 
+* `--upload-url` 选填: 文件上传的地址前缀,默认为 `https://api.rockai.online/v1/get_presign_url`, 需要加入query parameter `file_name`将文件名传入, 此地址必须支持`get`请求并返回格式为 `{"data":{"get_url":"http://","put_url":"http://"}}`的JSON, SDK会自动上传文件到`put_url`.
 
 打包完成后可以上传模型到RockAI平台,首先去rockai.online获取api-token然后用一下命令登录.
 
