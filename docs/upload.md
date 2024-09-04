@@ -21,7 +21,7 @@ $ pip install -U rockai
 $ rockai init
 ```
 
-`rockai init`命令会在当年目录下生成`predictor.py` 和 `.dockerignore` 两个文件. 使用VSCode或其他IDE打开`predictor.py`文件.
+`rockai init`命令会在当年目录下生成`predictor.py` 和 `.dockerignore` 两个文件. 使用VSCode或其他IDE打开`predictor.py`文件. 我们将看到以下内容.
 
 ```python
 from rockai import BasePredictor, Input, thread_limit,List,Dict
@@ -104,12 +104,33 @@ class Predictor(BaseModel):
         ...
         return MyOutput(image_name='xxx',image_file=Path("output.png"))
 ```
-  
+
+#### 依赖库安装
+本地调试时开发者通常会使用`pip`或者`apt install`来安装各种依赖库, 在您安装好本地依赖库之后, 您还需要把库的名字写进以下两个list中. 如果您需要的依赖库没有加入到`requirement_dependency`或者`system_dependency`中则可能造成打包失败, 导致程序无法正常运行.
+
+
+```python
+class Predictor(BasePredictor):
+
+    # 通常写在 requirements.txt 中的依赖项
+    requirement_dependency = ["torch","transformers","accelerate"]
+
+    # 通常使用 apt install 安装的依赖项
+    system_dependency = ["wget"]
+
+    #此处省略100字...
+    ...
+```
 
 
 #### 本地调试
 
 如果需要在本地调试我们可以输入以下命令, 它会启动一个FastAPI 服务器,我们可以通过http接口来调用模型.
+
+在调试之前我们需要先安装依赖
+```bash
+$ pip install torch transformers accelerate -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+```
 
 ```bash
 # 启动 FastAPI server
